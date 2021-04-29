@@ -2,57 +2,45 @@
 
 using namespace std;
 
-// class Node{
-// public:
-//     Node* next;
-//     int data;
-// };
+class Node
+{
+public:
+    int data;
+    Node *next;
+};
 
-// void push(Node** head_pointer, int data){
-//     Node* new_node = new Node();
-//     new_node->data = data;
-//     new_node->next = *head_pointer;
-//     *head_pointer = new_node;
-// }
+void InsertAtStart(int data, Node **head)
+{
 
-// void insertAfter(Node* after_node, int data){
-//     Node* new_node = new Node();
-//     new_node->data = data;
-//     new_node->next = after_node->next;
-//     after_node->next = new_node;
-// }
+    Node *temp = new Node();
+    temp->data = data;
+    temp->next = *head;
+    *head = temp;
+}
 
-// void append(Node** head_ref, int data){
-//     Node* new_node = new Node();
-//     new_node->data = data;
-//     new_node->next = NULL;
-//     Node* temp = *head_ref;
-//       if (*head_ref == NULL)
-//     {
-//         *head_ref = new_node;
-//         return;
-//     }
-//     while(temp->next!=NULL){
-//         temp = temp->next;
-//     }
-//     temp->next = new_node;
-//     return;
-// }
-
-// void traverse(Node** head_ref){
-//     while((*head_ref)->next!=NULL){
-//     cout << (*head_ref)->data << " ";
-//     (*head_ref) = (*head_ref)->next;
-//     }
-//     return;
-// }
+void PrintLinkedList(Node **head)
+{
+    Node *temp = *head;
+    cout << "Linked List: ";
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << "\n";
+}
 
 int main()
 {
-
-    // Node* head = NULL;
-    // push(&head, 3);
-    // traverse(&head);
-    // return 0;
-    cout << "hello";
+    int data, n;
+    cout << "How many inputs? \n";
+    cin >> n;
+    Node *head = NULL;
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Insert data: \n";
+        cin >> data;
+        InsertAtStart(data, &head);
+        PrintLinkedList(&head);
+    }
 }
