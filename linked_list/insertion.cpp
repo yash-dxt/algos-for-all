@@ -74,6 +74,23 @@ void DeleteAtPosition(int position, Node **head)
     delete temp2;
 }
 
+void ReverseLinkedList(Node **head)
+{
+    Node *curr, *prev, *next;
+
+    curr = *head;
+    prev = NULL;
+
+    while (curr != NULL)
+    {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    *head = prev;
+}
+
 void PrintLinkedList(Node **head)
 {
     Node *temp = *head;
