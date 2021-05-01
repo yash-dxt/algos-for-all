@@ -18,6 +18,24 @@ void InsertAtStart(int data, Node **head)
     *head = temp;
 }
 
+void InsertAtEnd(int data, Node **head)
+{
+    Node *temp = new Node();
+    temp->data = data;
+    temp->next = NULL;
+    Node *temp2 = *head;
+    if (*head == NULL)
+    {
+        *head = temp;
+        return;
+    }
+    while (temp2->next != NULL)
+    {
+        temp2 = temp2->next;
+    }
+    temp2->next = temp;
+}
+
 void InsertAtPostion(int data, int position, Node **head)
 {
 
@@ -36,6 +54,10 @@ void InsertAtPostion(int data, int position, Node **head)
     }
     temp->next = temp2->next;
     temp2->next = temp;
+}
+
+void DeleteAtPosition(int n)
+{
 }
 
 void PrintLinkedList(Node **head)
