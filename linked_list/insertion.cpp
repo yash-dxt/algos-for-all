@@ -120,6 +120,11 @@ void PrintLinkedList(Node **head)
 
 void ReversePrint(Node **head)
 {
+    Node *temp = *head;
+    if (temp == NULL)
+        return;
+    ReversePrint(&(temp->next));
+    cout << temp->data << " ";
 }
 
 void PrintUsingRecursion(Node **head)
@@ -141,5 +146,5 @@ int main()
     InsertAtEnd(0, &head);
     InsertAtEnd(6, &head);
     InsertAtEnd(9, &head);
-    PrintUsingRecursion(&head);
+    ReversePrint(&head);
 }
