@@ -106,6 +106,20 @@ void ReverseLinkedList(Node **head)
     *head = prev;
 }
 
+void ReverseLinkedListRecursion(Node **head)
+{
+    Node *temp = *head;
+    if (temp->next == NULL)
+    {
+        *head = temp;
+        return;
+    }
+    ReverseLinkedListRecursion(&(*head)->next);
+    Node *lastInStack = temp->next;
+    lastInStack->next = temp;
+    temp->next = NULL;
+}
+
 void PrintLinkedList(Node **head)
 {
     Node *temp = *head;
