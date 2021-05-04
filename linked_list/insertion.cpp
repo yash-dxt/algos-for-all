@@ -18,6 +18,21 @@ void InsertAtStart(int data, Node **head)
     *head = temp;
 }
 
+void ReverseLinkedList(Node **head)
+{
+    Node *current, *prev, *next;
+    prev = NULL;
+    current = *head;
+    while (current != NULL)
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    *head = prev;
+}
+
 void InsertAtEnd(int data, Node **head)
 {
     Node *temp = new Node();
@@ -106,16 +121,14 @@ void PrintLinkedList(Node **head)
 int main()
 {
     int data, n, position;
-    cout << "How many inputs? \n";
-    cin >> n;
     Node *head = NULL;
-    for (int i = 0; i < n; i++)
-    {
-        cout << "Insert data: \n";
-        cin >> data;
-        cout << "Which position? \n";
-        cin >> position;
-        InsertAtPostion(data, position, &head);
-        PrintLinkedList(&head);
-    }
+
+    InsertAtEnd(4, &head);
+    InsertAtEnd(2, &head);
+    InsertAtEnd(0, &head);
+    InsertAtEnd(6, &head);
+    InsertAtEnd(9, &head);
+    PrintLinkedList(&head);
+    ReverseLinkedList(&head);
+    PrintLinkedList(&head);
 }
