@@ -82,6 +82,25 @@ void Print(Node **head)
         cout << (*head)->data << " ";
     }
 }
+
+void DeleteAtPos(int position, Node **head)
+{
+    Node *temp = *head;
+    if (position == 1)
+    {
+        *head = temp->next;
+        delete temp;
+        return;
+    }
+    for (int i = 0; i < position - 2; i++)
+    {
+        temp = temp->next;
+    }
+    Node *deleted = temp->next;
+    temp->next = deleted->next;
+    delete deleted;
+}
+
 int main()
 {
     const int exit = 0;
