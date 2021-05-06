@@ -101,6 +101,26 @@ void DeleteAtPos(int position, Node **head)
     delete deleted;
 }
 
+void reverseIterative(Node **head)
+{
+    Node *prev, *curr, *next;
+    curr = *head;
+    prev = NULL;
+    next = curr->next;
+    while (curr != NULL)
+    {
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+        next = curr->next;
+    }
+    *head = prev;
+}
+
+void reverseRecursive(Node **head)
+{
+}
+
 int main()
 {
     const int exit = 0;
