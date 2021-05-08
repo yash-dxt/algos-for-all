@@ -106,19 +106,26 @@ void reverseIterative(Node **head)
     Node *prev, *curr, *next;
     curr = *head;
     prev = NULL;
-    next = curr->next;
     while (curr != NULL)
     {
+
+        next = curr->next;
         curr->next = prev;
         prev = curr;
         curr = next;
-        next = curr->next;
     }
     *head = prev;
 }
 
 void reverseRecursive(Node **head)
 {
+    Node *temp = *head;
+    if (temp->next == NULL)
+    {
+        *head = temp;
+        return;
+    }
+    Node *lastInStack = temp->next;
 }
 
 int main()
